@@ -1,0 +1,168 @@
+{% extends 'Base/base.html' %}
+{% block titre %}Galerie{% endblock %}
+
+{% block body %}
+{% load static %}
+<!-- Breadcrumb Area Start -->
+{% for n in back %}
+    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({{n.image.url}});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">Galerie</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="/"><i class="icon_house_alt"></i> Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endfor %}
+    <!-- Breadcrumb Area End -->
+<!--galerie de l'accueil-->
+       <div class="alime-portfolio-area section-padding-80 clearfix">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Projects Menu -->
+                    <div class="alime-projects-menu">
+                        <div class="portfolio-menu text-center">
+                            <button class="btn active" data-filter="*">all</button>
+                            <button class="btn" data-filter=".pro">Professionnelle</button>
+                            <button class="btn" data-filter=".baby">Baby Shoot</button>
+                            <button class="btn" data-filter=".mariage">Mariage</button>
+                            <button class="btn" data-filter=".nature">Nature</button>
+                            <button class="btn" data-filter=".Packshot">Packshot</button>
+                            <button class="btn" data-filter=".seances">Shooting</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+<!---1-----Professionnelle----------------------------->
+              <div class="row alime-portfolio">
+                <!-- Single Gallery Item -->
+                {% for x in alb1 %}
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item pro mb-30 wow fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="{{x.image.url}}" alt="">
+                        <div class="hover-content">
+                            <a href="{{x.image.url}}" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+<!---2------------------------------------------------------------------>
+				 <!-- Single Gallery Item -->
+                 {% for x in alb4 %}
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item baby mb-30 wow fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="{{x.image.url}}" alt="">
+                        <div class="hover-content">
+                            <a href="{{x.image.url}}" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+<!-----3-------------------------------------------------------------------->
+				 <!-- Single Gallery Item -->
+                 {% for x in alb3 %}
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="single-portfolio-content">
+                        <img src="{{x.image.url}}" alt="">
+                        <div class="hover-content">
+                            <a href="{{x.image.url}}" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+<!------4-------------------------------------------------------------------->
+				<!-- Single Gallery Item -->
+                {% for x in alb2 %}
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item Packshot mb-30 wow fadeInUp" data-wow-delay="700ms">
+                    <div class="single-portfolio-content">
+                        <img src="{{x.image.url}}" alt="">
+                        <div class="hover-content">
+                            <a href="{{x.image.url}}" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+<!------5------------------------------------------------------------------------->
+				  <!-- Single Gallery Item -->
+                  {% for x in alb6 %}
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item seances mb-30 wow fadeInUp" data-wow-delay="100ms">
+                    <div class="single-portfolio-content">
+                        <img src="{{x.image.url}}" alt="">
+                        <div class="hover-content">
+                            <a href="{{x.image.url}}" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+<!------6------------------------------------------------------------------------------>
+				       <!-- Single Gallery Item -->
+                       {% for x in alb5 %}
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item mariage mb-30 wow fadeInUp" data-wow-delay="300ms">
+                    <div class="single-portfolio-content">
+                        <img src="{{x.image.url}}" alt="">
+                        <div class="hover-content">
+                            <a href="{{x.image.url}}" class="portfolio-img">+</a>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+<!--------------------------------------------------------------------------------------------->
+				</div>
+        </div>
+    </div>
+    <!-- Gallery Area End -->
+
+
+
+
+ <!-- Follow Area Start -->
+    <section class="follow-area clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                        <h2>Suivre instagram</h2>
+                        <p>@exstingsudiophoto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instagram Feed Area -->
+        <!--class =========== class-->
+
+        <div class="instragram-feed-area owl-carousel">
+            <!-- Single Instagram Item -->
+            {% for img in insta %}
+            <div class="single-instagram-item">
+                <img src="{{img.image.url}}" alt="" style="height: 250px;">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="https://www.instagram.com/p/CFDUfzugX2s/?utm_source=ig_web_copy_link">
+                        <i class="ti-instagram" aria-hidden="true"></i>
+                        <span>exstingsudiophoto</span>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- Follow Area End -->
+{% endblock %}

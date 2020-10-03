@@ -1,0 +1,135 @@
+{% extends 'Base/base.html' %}
+{% block titre %}Accueil{% endblock %}
+
+{% block body %}
+{% load static %}
+<!-- Welcome Area Start -->
+    <section class="welcome-area">
+        <div class="welcome-slides owl-carousel">
+            <!-- Single Slide -->
+            {% for x in tete1 %}
+            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url({{x.image.url}});">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <!-- Welcome Text -->
+                        <div class="col-12 col-lg-9 col-xl-6">
+                            <div class="welcome-text">
+                                <h2 data-animation="bounceInDown" data-delay="900ms">{{x.titre}}</h2>
+                                <p data-animation="bounceInDown" data-delay="500ms">{{x.text}}</p>
+                                <div class="hero-btn-group" data-animation="bounceInDown" data-delay="100ms">
+                                    <a href="{% url 'contact' %}" class="btn alime-btn mb-3 mb-sm-0 mr-4">Prendre rendez-vous</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <!-- Single Slide -->
+            {% for x in tete2 %}
+            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url({{x.image.url}});">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <!-- Welcome Text -->
+                        <div class="col-12 col-lg-9 col-xl-6">
+                            <div class="welcome-text">
+                                <h2 data-animation="bounceInUp" data-delay="100ms">{{x.titre}}</h2>
+                                <p data-animation="bounceInUp" data-delay="500ms">{{x.text}}</p>
+                                <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
+                                    <a href="{% url 'contact' %}" class="btn alime-btn mb-3 mb-sm-0 mr-4">Prendre rendez-vous</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- Welcome Area End -->
+
+<!------------------------------------------------------------------------------------------------>
+<section class="why-choose-us-area bg-gray section-padding-80-0 clearfix" style="border-bottom: 2px solid white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
+                        <h2>Nos services</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+{% for x in service %}
+<div class="col-md-4">
+                    <div class="why-choose-us-content text-center mb-80 wow fadeInUp" data-wow-delay="500ms">
+
+<div class="chosse-us-icon">
+<i class="fa fa-camera" aria-hidden="true"></i>
+                        </div>
+                        <h4>{{x.titre}}</h4>
+                        <p>{{x.text}}</p>
+                    </div>
+                </div>
+{% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+
+<!------------------------------------------------------------------------------------------------>
+
+<!---------------------------image pub----------------------------------------->
+ <!---image pub -->
+    <div class="container h-100 mb-3">
+        <div class="row">
+            {% for im in pub %}
+            <div class="col-md-12">
+                <img src="{{im.image.url}}" style=" margin: auto; width: 100%;">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!--endimagepub-->
+<!-------------------------------endpub----------------------------------->
+
+<!--reserver aux visiteurs-->
+                       
+                        
+<!-- Follow Area Start -->
+
+
+    <section class="follow-area clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                        <h4>Suivre sur Instagram</h4>
+                        <p>@exstingstudiophoto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instagram Feed Area -->
+        <!--class =========== class-->
+
+        <div class="instragram-feed-area owl-carousel">
+            <!-- Single Instagram Item -->
+            {% for img in insta %}
+            <div class="single-instagram-item">
+                <img src="{{img.image.url}}" alt="" style="height: 250px;">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="https://www.instagram.com/p/CFDUfzugX2s/?utm_source=ig_web_copy_link">
+                        <i class="ti-instagram" aria-hidden="true"></i>
+                        <span>exstingstudiophoto</span>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- Follow Area End -->
+{% endblock %}

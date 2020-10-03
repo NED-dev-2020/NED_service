@@ -1,0 +1,173 @@
+{% extends 'Base/base.html' %}
+{% block titre %}a-propos{% endblock %}
+
+{% block body %}
+
+{% load static %}
+    <!-- Breadcrumb Area Start -->
+{% for n in back %}
+    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({{n.image.url}});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">A propos</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="/"><i class="icon_house_alt"></i> Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">About</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endfor %}
+    <!-- Breadcrumb Area End -->
+
+   <!-- about_area_start -->
+    <div class="about_area about-us-area section-padding-80-0 clearfix">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-6 col-md-6">
+                    <div class="about_thumbs">
+                        {% for m in img1 %}
+                        <div class="large_img_1">
+                            <img src="{{m.image.url}}" alt="" style="border: 3px solid #fff; width: 90%; height: 300px;" >
+                        </div>
+                        {% endfor %}
+                        {% for n in img2 %}
+                        <div class="small_img_1" style="width: 60%; height: 70%; margin-top: 8%; border: 5px solid white;">
+                            <img src="{{n.image.url}}" alt="">
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6">
+                    <div class="about_info">
+                        <div class="section_title mb-20px">
+                        <h3 class="wow fadeInUp" data-wow-delay="100ms">EX-s'ting studio</h3>
+                        <div class="line wow fadeInUp" data-wow-delay="200ms"></div>
+                        <p class="wow fadeInUp" data-wow-delay="300ms">Nous sommes une agence de photographie professionnelle et de qualité, chez nous, nous pensons que l'endroit à vos coté est spécial, tout comme les personnes qui le remplissent. Que ce soit votre moitié, votre nouveau bébé, votre meilleur ami, votre arrière-grand-mére ou toute votre tribu, ce sont les personnes avec lesquelles vous choisissez de vous tenir dans la vie.</p>
+                        <p class="wow fadeInUp" data-wow-delay="400ms">Merci de nous donner l'opportunité de capturer des moments ou des occasions les plus importantes de votre vie.</p>
+</div>
+                        <a class="btn alime-btn btn-2 mt-30 wow fadeInUp" data-wow-delay="500ms" href="{% url 'galerie' %}">Explorer le travail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+
+    <!-- Why Choose Us Area Start -->
+    <section class="why-choose-us-area bg-gray section-padding-80-0 clearfix" style="border-bottom: 2px solid white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
+                        <h2>Pourquoi nous choisir</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Single Why Choose Area -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="why-choose-us-content text-center mb-80 wow fadeInUp" data-wow-delay="100ms">
+                        <div class="chosse-us-icon">
+                            <i class="fa fa-film" aria-hidden="true"></i>
+                        </div>
+                        <h4>L'image de qualité</h4>
+                        <p>Un résultat professionnel vous apportera un retour professionnel ! Notre objectif: Vous satisfaire ! Les photos proposées sont le fruit d'un échange entre vos exigéances et notre expérience.</p>
+                    </div>
+                </div>
+
+                <!-- Single Why Choose Area -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="why-choose-us-content text-center mb-80 wow fadeInUp" data-wow-delay="300ms">
+                        <div class="chosse-us-icon">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </div>
+                        <h4>Experience abondante</h4>
+                        <p>Nos photographes sont diplômés, formés et expérimentés. Ils coachent, ils conseillent et vous accompagnent durant votre shooting.</p>
+                    </div>
+                </div>
+
+                <!-- Single Why Choose Area -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="why-choose-us-content text-center mb-80 wow fadeInUp" data-wow-delay="500ms">
+                        <div class="chosse-us-icon">
+                            <i class="fa fa-camera" aria-hidden="true"></i>
+                        </div>
+                        <h4>Équipements modernes</h4>
+                        <p>Nos espaces sont entièrement créés, developpés et décorés par notre équipe pour vous apporter la meilleure expérience!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Why Choose  us Area End -->
+
+<!--Suggestion-->
+<div class="container-fluid mb-30" style="padding-bottom: 20px; margin-bottom: 0px; background-color: rgba(200,200,200,0.1);">
+    <div class="row">
+        <div class="col-md-6" style="padding-top: 40px;">
+            <h4>Votre suggestion</h4>
+                {% load crispy_forms_tags %}
+
+                <form  method="post" style="border-right: 1px solid #666; padding-right: 8px;">
+                    {% csrf_token %}
+
+                    {{Sug|crispy}}
+                    
+                    <button type="submit" class="btn btn-outline-info">Envoyer</button>
+                </form>
+        </div>
+        <div class="col-md-6" style="padding-top: 50px; text-align: center; font-size: 20px;">
+           <h4>Tous nos services</h4>
+           <p style="font-size: 18px;">Séances Photo / Packshot<br> / Photo de Mariage / Photographie de produit / <br>Photo professionnelle</p>
+           <h5>Contact</h5>
+            <i class="fa fa-phone" style="margin-right: 6px;">+242 06 521 44 84</i><br><br>
+            <a href="{% url 'contact' %}"><button type="submit" class="btn btn-outline-dark">Prendre rendez-vous</button></a>
+        </div>
+    </div>
+</div>
+<!--end suggestion -->
+
+
+ <!-- Follow Area Start -->
+    <section class="follow-area clearfix" style="padding-top: 25px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                        <h2>Suivre instagram</h2>
+                        <p>@exstingsudiophoto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instagram Feed Area -->
+        <!--class =========== class-->
+
+        <div class="instragram-feed-area owl-carousel">
+            <!-- Single Instagram Item -->
+            {% for img in insta %}
+            <div class="single-instagram-item">
+                <img src="{{img.image.url}}" alt="" style="height: 250px;">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="https://www.instagram.com/p/CFDUfzugX2s/?utm_source=ig_web_copy_link">
+                        <i class="ti-instagram" aria-hidden="true"></i>
+                        <span>exstingsudiophoto</span>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- Follow Area End -->
+{% endblock %}

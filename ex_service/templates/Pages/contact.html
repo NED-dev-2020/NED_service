@@ -1,0 +1,85 @@
+{% extends 'Base/base.html' %}
+{% block titre %}Contact{% endblock %}
+
+{% block body %}
+{% load static %}
+<!-- Breadcrumb Area Start -->
+{% for n in back %}
+    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({{n.image.url}});" >
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">Contact</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="/"><i class="icon_house_alt"></i> Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endfor %}
+    <!-- Breadcrumb Area End -->
+
+<section class="contact-section"  style="background-color: rgba(0,0,0,0.1); padding-bottom: 10px; padding-top: 15px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                     <h2 class="contact-title" style="font-size: px;">Prendre rendez-vous</h2>
+                    {% load crispy_forms_tags %}
+
+                    <form  method="post">
+                        {% csrf_token %}
+
+                        {{form|crispy}}
+                    
+                        <button type="submit" class="btn btn-outline-info">Envoyer</button>
+                    </form>
+
+                    <div style="margin-top: 25px;">
+                        <a href="https://wa.me/message/4RM75QFTC7YYP1"><button type="button" class="btn btn-success"><i class="fa fa-whatsapp" aria-hidden="true" width="100px"></i> Reserver via whatsapp</button></a>
+                    </div>
+                </div>
+            </div>
+</div>
+            </div>
+</section>
+<!--end contact-->
+
+ <!-- Follow Area Start -->
+    <section class="follow-area clearfix mt-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                        <h2>Suivre instagram</h2>
+                        <p>@exstingsudiophoto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instagram Feed Area -->
+        <!--class =========== class-->
+
+        <div class="instragram-feed-area owl-carousel">
+            <!-- Single Instagram Item -->
+            {% for img in insta %}
+            <div class="single-instagram-item">
+                <img src="{{img.image.url}}" alt="" style="height: 250px;">
+                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
+                    <a href="https://www.instagram.com/p/CFDUfzugX2s/?utm_source=ig_web_copy_link">
+                        <i class="ti-instagram" aria-hidden="true"></i>
+                        <span>exstingsudiophoto</span>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- Follow Area End -->
+{% endblock %}
